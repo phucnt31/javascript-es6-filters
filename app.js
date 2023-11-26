@@ -2,7 +2,12 @@ let filteredProducts = [...products];
 const productsContainer = document.querySelector(".products-container");
 
 const displayProducts = () => {
-  // if statement
+  // check empty if statement
+  if (filteredProducts.length < 1) {
+    productsContainer.innerHTML = `<h6>Sorry, no products matched your search</h6>`;
+    return;
+  }
+  // end check empty if statement
   productsContainer.innerHTML = filteredProducts
     .map(({ id, title, image, price }) => {
       return ` <!-- single product -->
